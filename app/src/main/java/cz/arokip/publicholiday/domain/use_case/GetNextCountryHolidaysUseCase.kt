@@ -10,14 +10,14 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetNextWorldHolidaysUseCase @Inject constructor(
+class GetNextCountryHolidaysUseCase @Inject constructor(
     private val repository: PublicHolidaysRepository,
 ) {
-    operator fun invoke(): Flow<Resource<List<PublicHoliday>>> = flow {
+    operator fun invoke(countryCode: String): Flow<Resource<List<PublicHoliday>>> = flow {
         try {
             emit(Resource.Loading())
-            val nextHolidays = repository.getNextWorldHolidays()
-            emit(Resource.Success(nextHolidays.map { it.toPublicHoliday() }))
+            val nextCountryHolidays = repository.getNextCountryHolidays(countryCode = countryCode)
+            emit(Resource.Success(nextCountryHolidays.map { it.toPublicHoliday() }))
         } catch (e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "An unexpected HTTP error occurred."))
         } catch (e: IOException) {

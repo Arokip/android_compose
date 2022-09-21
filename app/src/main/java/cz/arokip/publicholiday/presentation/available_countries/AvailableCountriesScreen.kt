@@ -14,12 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import cz.arokip.publicholiday.presentation.available_countries.components.AvailableCountryItem
 import cz.arokip.publicholiday.presentation.destinations.CountryInfoScreenDestination
 import cz.arokip.publicholiday.presentation.destinations.NextHolidaysScreenDestination
 
-@Destination(start = true)
+@RootNavGraph(start = true)
+@Destination
 @Composable
 fun AvailableCountriesScreen(
     navigator: DestinationsNavigator,

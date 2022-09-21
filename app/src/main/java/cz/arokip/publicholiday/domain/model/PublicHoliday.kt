@@ -1,5 +1,9 @@
 package cz.arokip.publicholiday.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class PublicHoliday(
     val counties: List<String>?,
     val countryCode: String,
@@ -10,4 +14,4 @@ data class PublicHoliday(
     val localName: String,
     val name: String,
     val types: List<String>
-)
+): Parcelable
