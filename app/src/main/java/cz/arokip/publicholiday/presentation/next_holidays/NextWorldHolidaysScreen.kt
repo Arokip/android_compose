@@ -10,12 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import cz.arokip.publicholiday.domain.model.Country
 import cz.arokip.publicholiday.presentation.destinations.PublicHolidayInfoScreenDestination
 import cz.arokip.publicholiday.presentation.next_holidays.components.NextWorldHolidaysItem
 
 @Destination
 @Composable
-fun NextHolidaysScreen(
+fun NextWorldHolidaysScreen(
     navigator: DestinationsNavigator,
     viewModel: NextWorldHolidaysViewModel = hiltViewModel(),
 ) {
@@ -23,10 +24,10 @@ fun NextHolidaysScreen(
     Column {
         Text("Next Public Holidays Worldwide in the next 7 days")
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(items = state.publicHolidays) { publicHolidays ->
-                NextWorldHolidaysItem(nextWorldHoliday = publicHolidays,
+            items(items = state.publicHolidays) { publicHoliday ->
+                NextWorldHolidaysItem(nextWorldHoliday = publicHoliday,
                     onItemClick = {
-                        navigator.navigate(PublicHolidayInfoScreenDestination(holiday = publicHolidays))
+                        navigator.navigate(PublicHolidayInfoScreenDestination(holiday = publicHoliday))
                     }
                 )
 

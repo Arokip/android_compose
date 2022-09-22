@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import cz.arokip.publicholiday.common.Constants
 import cz.arokip.publicholiday.domain.model.Country
 import cz.arokip.publicholiday.domain.model.PublicHoliday
+import cz.arokip.publicholiday.presentation.available_countries.components.CountryFlagImage
 import cz.arokip.publicholiday.presentation.available_countries.components.SvgUrlImage
 import java.util.*
 
@@ -26,13 +27,7 @@ fun NextWorldHolidaysItem(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(
-            modifier = Modifier.size(40.dp),
-        ) {
-            val countryCodeLowerCase = nextWorldHoliday.countryCode.lowercase(Locale.getDefault())
-            val svgUrl = "${Constants.BASE_URL}images/circle-flags/flags/$countryCodeLowerCase.svg"
-            SvgUrlImage(svgUrl = svgUrl)
-        }
+        CountryFlagImage(countryCode = nextWorldHoliday.countryCode, size = 40.dp)
         Spacer(Modifier.width(16.0.dp))
         Text(text = "${nextWorldHoliday.name} (${nextWorldHoliday.countryCode}), ${nextWorldHoliday.date}")
     }

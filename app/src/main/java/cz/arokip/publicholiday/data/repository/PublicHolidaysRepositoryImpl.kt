@@ -27,4 +27,8 @@ class PublicHolidaysRepositoryImpl @Inject constructor(
     override suspend fun getNextCountryHolidays(countryCode: String): List<PublicHolidayDto> {
         return api.getNextPublicHolidays(countryCode = countryCode)
     }
+
+    override suspend fun getCountryHolidaysInYear(year:String, countryCode: String): List<PublicHolidayDto> {
+        return api.getPublicHolidaysInYear( year = year, countryCode = countryCode)
+    }
 }

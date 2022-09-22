@@ -31,13 +31,7 @@ fun AvailableCountryItem(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(
-            modifier = Modifier.size(40.dp),
-        ) {
-            val countryCodeLowerCase = country.countryCode.lowercase(Locale.getDefault())
-            val svgUrl = "${Constants.BASE_URL}images/circle-flags/flags/$countryCodeLowerCase.svg"
-            SvgUrlImage(svgUrl = svgUrl)
-        }
+        CountryFlagImage(countryCode = country.countryCode, size = 40.dp)
         Spacer(Modifier.width(16.0.dp))
         Column {
             Text(text = country.name, style = TextStyle(color = MaterialTheme.colorScheme.primary, fontSize = 18.sp))

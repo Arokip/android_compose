@@ -18,7 +18,7 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import cz.arokip.publicholiday.presentation.available_countries.components.AvailableCountryItem
 import cz.arokip.publicholiday.presentation.destinations.CountryInfoScreenDestination
-import cz.arokip.publicholiday.presentation.destinations.NextHolidaysScreenDestination
+import cz.arokip.publicholiday.presentation.destinations.NextWorldHolidaysScreenDestination
 
 @RootNavGraph(start = true)
 @Destination
@@ -39,7 +39,7 @@ fun AvailableCountriesScreen(
                 Button(
                     modifier = Modifier.padding(8.dp),
                     onClick = {
-                        navigator.navigate(NextHolidaysScreenDestination())
+                        navigator.navigate(NextWorldHolidaysScreenDestination())
                     }) {
                     Text("Show next world holidays")
                 }

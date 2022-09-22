@@ -15,4 +15,6 @@ interface PublicHolidaysRepository {
 
     suspend fun getNextCountryHolidays(countryCode: String): List<PublicHolidayDto>
 
+    suspend fun getCountryHolidaysInYear(year:String, countryCode: String): List<PublicHolidayDto>
+
 }

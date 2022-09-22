@@ -20,4 +20,7 @@ interface PublicHolidaysApi {
 
     @GET("/api/v3/NextPublicHolidays/{country_code}")
     suspend fun getNextPublicHolidays(@Path(value = "country_code", encoded = true) countryCode: String): List<PublicHolidayDto>
+
+    @GET("/api/v3/PublicHolidays/{year}/{country_code}")
+    suspend fun getPublicHolidaysInYear(@Path(value = "year", encoded = true) year: String, @Path(value = "country_code", encoded = true) countryCode: String): List<PublicHolidayDto>
 }
