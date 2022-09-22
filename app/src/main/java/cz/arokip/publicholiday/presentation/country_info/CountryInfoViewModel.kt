@@ -25,6 +25,8 @@ class CountryInfoViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
+    // QUESTION: more states here does not look like a good idea, is it ok?
+
     private val _countryInfoState = mutableStateOf(CountryInfoState())
     val countryInfoState: State<CountryInfoState> = _countryInfoState
 
